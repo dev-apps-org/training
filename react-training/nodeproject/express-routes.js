@@ -37,7 +37,15 @@ router.route('/addNewEmployeeDetails').post((request, response) => {
         "dept" : request.body.dept
     }
 
+    // Insert new employee record in the array
     employeeData.push(newEmployeeDetail);
+    response.json(employeeData);
+});
+
+router.route('/removeEmpDetail/:id').delete((request, response) => {
+    let empId = request.params.id;
+    let empIndex = employeeData.findIndex((emp) => emp.id == empId);
+    employeeData.splice(empIndex, 1);
     response.json(employeeData);
 });
 
