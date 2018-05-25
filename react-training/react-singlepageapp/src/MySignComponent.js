@@ -14,7 +14,7 @@ export default class MySignComponent extends Component {
     }
 
     componentDidMount() {
-        document.querySelector("h3").style.color = 'red';
+        // document.querySelector("h3").style.color = 'red';
     }
 
     render() {
