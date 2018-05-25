@@ -8,6 +8,8 @@ var mongoose = require("mongoose");
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
+var cors = require("cors")
+
 var app = express();
 
 // view engine setup
@@ -24,6 +26,16 @@ mongoose.connect("mongodb://localhost:27017/shoppingdb");
 console.log('Connected to mongodb, db name -> shoppingdb');
 
 let products = require("./models/productmodel");
+
+/* Enable CORS request for specific origin
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+})
+*/
+
+app.use(cors());
 
 app.get("/product-service", (req, res) => {
   products.find((err, data) => {
