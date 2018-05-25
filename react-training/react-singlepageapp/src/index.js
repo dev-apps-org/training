@@ -21,7 +21,7 @@ let appStore = createStore(appReducers, window.__REDUX_DEVTOOLS_EXTENSION__ && w
 
 ReactDOM.render(
     <Provider store={appStore}>
-        <BrowserRouter>
+        <BrowserRouter basename="/myshop/">
             <App />
         </BrowserRouter>
     </Provider>, document.getElementById('root'));
